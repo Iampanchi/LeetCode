@@ -11,26 +11,21 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        stack<ListNode*> st;
+        vector<int> v;
         ListNode* curr=head;
         while(curr!=NULL){
-            st.push(curr);
+            v.push_back(curr->val);
             curr=curr->next;
         }
-        curr=head;
-        while(curr!=NULL){
-            if(head->val==st.top()->val){
-                st.pop();
+        int i = 0 ,j=v.size()-1;
+        while(i<j){
+            if(v[i]==v[j]){
+                i++;
+                j--;
             }
             else{
                 return false;
             }
-            head=head->next;
-            if(curr->next!=NULL){
-                curr=curr->next->next;
-            }
-            else
-            {curr=curr->next;}
         }
         
         return true;
