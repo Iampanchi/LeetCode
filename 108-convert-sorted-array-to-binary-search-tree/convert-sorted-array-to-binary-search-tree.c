@@ -43,19 +43,9 @@ struct TreeNode* sortedArrayToBST(int* nums, int numsSize) {
 
     int mid = lo + (hi-lo)/2;
     struct TreeNode* root=createNode();
-    root->val=arr[mid];
-    if(lo<mid){
-        struct TreeNode *lft=createNode();
-        root->left=lft;
-        hierarchy(lo,mid-1,root->left);
-    }
-    if(hi>mid){
-        struct TreeNode *rght=createNode();
-        root->right=rght;
-        hierarchy(mid+1,hi,rght);
-    }
+    hierarchy(lo,hi,root);
     
-    
+
     return root;
     
 
