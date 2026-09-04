@@ -17,11 +17,14 @@ public:
             }
 
         }
+        vector<int> p;
         while(!st.empty()){
-            invalid.push_back(st.top().second);
+            p.push_back(st.top().second);
             st.pop();
         }
-        sort(invalid.begin(),invalid.end());
+        for(int i = p.size()-1;i>=0;i--){
+            invalid.push_back(p[i]);
+        }
         invalid.push_back(s.size());
         for(int i = 0 ; i<invalid.size()-1;i++){
             mx=max(mx,invalid[i+1]-invalid[i]-1);
